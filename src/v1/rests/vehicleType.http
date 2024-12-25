@@ -1,0 +1,41 @@
+@hostname = localhost
+@port = 8800
+@object = type-vehicle
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@contentType = application/json
+
+
+### Get All Vehicle Types
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Vehicle Type By Id
+GET http://{{host}}/{{endpoint}}/getbyid?vehicleTypeId=10 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Create Vehicle Type
+POST http://{{host}}/{{endpoint}}/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "name": "Car",
+      "description": "A comfortable family car"
+}
+### Update Vehicle Type
+PUT http://{{host}}/{{endpoint}}/update HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "vehicleTypeId": 11,
+      "name": "Car",
+      "description": "A two-wheeled motor vehicle that is powered by engine."
+}
+
+### Delete Vehicle Types
+DELETE http://{{host}}/{{endpoint}}/delete?vehicleTypeId=11 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Deleted All
+GET http://{{host}}/{{endpoint}}/getalldeleted HTTP/1.1
+Content-Type: {{contentType}}

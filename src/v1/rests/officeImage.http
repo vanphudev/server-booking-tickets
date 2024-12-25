@@ -1,0 +1,28 @@
+   @hostname = localhost
+@port = 8800
+@object = officeimage
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@contentType = application/json
+### Create Office Image
+POST http://{{host}}/{{endpoint}}/create/12 HTTP/1.1
+Content-Type: multipart/form-data; boundary=MfnBoundry
+
+--MfnBoundry
+Content-Disposition: form-data; name="officeName"
+
+Văn phòng bến xe miền đông, Hà Nội
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="huit.png"
+Content-Type: image/png
+
+< C:\Users\ACER\Pictures\Camera Roll\huit.png
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="huit.png"
+Content-Type: image/png
+
+< C:\Users\ACER\Pictures\Camera Roll\huit.png
+
+--MfnBoundry--

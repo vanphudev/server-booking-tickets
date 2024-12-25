@@ -1,0 +1,60 @@
+<html lang="vi" translate="no">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Thông Báo Mở Lại Tài Khoản</title>
+      <style>
+         body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Arial', sans-serif; color: #333; }
+         .email-container { max-width: 600px; margin: 30px auto; background: white; border-radius: 12px; overflow:
+         hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; } .header { background:
+         linear-gradient(135deg, #003366, #007bff); color: white; text-align: center; padding: 30px 20px; clip-path:
+         polygon(0 0, 100% 0, 100% 85%, 0 100%); } .header h2 { margin: 0; font-size: 28px; text-transform: uppercase;
+         font-weight: bold; letter-spacing: 1px; } .content { padding: 20px 30px; } .content p { margin: 15px 0;
+         font-size: 16px; line-height: 1.6; } .success-box { background: #e6f7ff; padding: 15px; margin: 20px 0;
+         border-radius: 8px; border: 1px solid #91d5ff; text-align: center; font-size: 18px; font-weight: bold; color:
+         #0050b3; } .cta-button { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #003366;
+         color: white; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; transition:
+         background-color 0.3s ease; } .cta-button:hover { background: #0056b3; } .footer { text-align: center; padding:
+         15px; font-size: 12px; background: #f9f9f9; color: #666; border-top: 1px solid #ddd; }
+      </style>
+   </head>
+   <body>
+      <div class="email-container">
+         <div class="header">
+            <h2>FUTA BUS LINE - Thông Báo Mở Lại Tài Khoản</h2>
+         </div>
+
+         <div class="content">
+            <p>Kính gửi Anh/Chị <strong>{{name}}</strong>,</p>
+
+            <p>Chúng tôi rất vui mừng thông báo rằng tài khoản của bạn đã được mở lại thành công và bạn có thể tiếp tục
+               sử dụng dịch vụ của FUTA Bus Lines.</p>
+
+            <div class="success-box">
+               Tài khoản:
+               <strong>{{email}}</strong><br />
+               Trạng thái:
+               <strong>Đã kích hoạt</strong>
+            </div>
+
+            <p>Chúng tôi hy vọng bạn sẽ tiếp tục có những trải nghiệm tuyệt vời khi sử dụng dịch vụ của chúng tôi. Nếu
+               bạn cần hỗ trợ hoặc có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi.</p>
+
+            <a
+               href="https://futa.vanphudev.id.vn/login"
+               class="cta-button"
+               style="text-decoration: none; color: white;"
+            >Đăng Nhập Ngay</a>
+
+            <p>Chúc bạn một ngày tốt lành!</p>
+
+            <p>Trân trọng,<br />
+               <strong>Đội ngũ Hỗ trợ Khách hàng FUTA Bus Lines</strong></p>
+         </div>
+
+         <div class="footer">
+            <p>Email này được gửi tự động. Vui lòng không trả lời email này.</p>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,67 @@
+<html lang="vi" translate="no">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>FUTA Bus Lines - Xác nhận hoàn vé {{ticketCode}}</title>
+      <style>
+         .email-body { padding: 20px 30px; } .email-body h2 { color: #ff6600; text-align: center; margin-bottom: 20px; }
+         .email-body p { line-height: 1.6; margin: 10px 0; } .email-body ul { list-style-type: none; padding: 0; margin:
+         10px 0 20px; } .email-body ul li { background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding:
+         10px; margin-bottom: 10px; }
+      </style>
+   </head>
+   <body style="background-color: #ff6600; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+      <div style="padding: 0px 25px; font-size: 14px; line-height: 24px;">
+         <div style="border-radius: 5px; background-color: #fff; max-width: 600px; margin: 0 auto;">
+            <div style="padding: 20px 10px; text-align: center;">
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733205068/Bus_Lines_817c989817_jtr9hg.png"
+                  alt="FUTA Bus Lines Logo"
+                  width="300px"
+               />
+            </div>
+            <div>
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733204232/Picture1_v1n3zy.png"
+                  alt="Divider"
+                  width="100%"
+                  style="max-height: 70px;"
+               />
+            </div>
+            <div class="email-body">
+               <h2>Xác nhận hoàn vé thành công!</h2>
+               <p>Xin chào Anh/Chị <b>{{customerName}}</b>,</p>
+               <p>Chúng tôi xin thông báo yêu cầu hoàn vé của quý khách đã được xác nhận. Dưới đây là thông tin chi tiết
+                  về yêu cầu hoàn vé:</p>
+               <ul>
+                  <li>Email: {{customerEmail}}</li>
+                  <li>Số điện thoại: {{customerPhone}}</li>
+                  <li>Mã vé: {{ticketCode}}</li>
+                  <li>Mã vé hoàn: {{refundCode}}</li>
+                  <li>Số tiền hoàn: {{refundAmount}}</li>
+                  <li>Tỷ lệ hoàn: {{refundPercentage}}%</li>
+                  <li>Mô tả: {{refundDescription}}</li>
+                  <li>Trạng thái: Đã được duyệt</li>
+                  <li>Nhân viên xử lý: {{employeeName}}</li>
+               </ul>
+               <p>Nhân viên của chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất có thể. Quý khách vui lòng
+                  đợi trong vòng 2 đến 5 ngày làm việc để hoàn tất quy trình hoàn tiền.</p>
+            </div>
+            <div>
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733204232/Picture1_v1n3zy.png"
+                  alt="Divider"
+                  width="100%"
+                  style="max-height: 70px;"
+               />
+            </div>
+            <div style="text-align: center; font-size: 12px; color: #000;">
+               <p>FUTA Bus Lines luôn sẵn sàng phục vụ quý khách.</p>
+               <p>Mọi thông tin cần hỗ trợ, vui lòng liên hệ:
+                  <a href="mailto:support@futabus.vn">support@futabus.vn</a></p>
+               <p>Hotline: <b>1900 969681</b></p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,51 @@
+@hostname = localhost
+@port = 8800
+@object = vouchers
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/public/{{object}}
+@contentType = application/json
+
+### Get All Vouchers
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Voucher By Code
+GET http://{{host}}/{{endpoint}}/getByCode?code=AAA HTTP/1.1
+Content-Type: {{contentType}}
+
+### Create Voucher
+POST http://{{host}}/{{endpoint}}/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+   "code": "VIP-2021",
+   "percentage": 10,
+   "max_amount": "2021-12-31",
+   "usage_limit": 1,
+   "valid_from": "2021-12-31",
+   "valid_to": "2021-12-31",
+   "create_by": 1
+}
+
+### Update Voucher
+PUT http://{{host}}/{{endpoint}}/update HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+   "code": "VIP-2021",
+   "percentage": 10,
+   "max_amount": "2021-12-31",
+   "usage_limit": 1,
+   "valid_from": "2021-12-31",
+   "valid_to": "2021-12-31",
+   "update_by": 1
+}
+
+### Delete Voucher
+DELETE http://{{host}}/{{endpoint}}/delete HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+   "code": 1,
+   "delete_by": 1
+}

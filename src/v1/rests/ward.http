@@ -1,0 +1,16 @@
+@hostname = localhost
+@port = 8800
+@object = wards
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/public/{{object}}
+@contentType = application/json
+
+### Get All Ward
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Wards By Id
+GET http://{{host}}/{{endpoint}}/getbyid/27 HTTP/1.1
+
+### Get Wards By District Id
+GET http://{{host}}/{{endpoint}}/getbydistrictid/12 HTTP/1.1

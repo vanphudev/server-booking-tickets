@@ -1,0 +1,43 @@
+@hostname = localhost
+@port = 8800
+@object = /type-article
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@contentType = application/json
+
+
+### Get All article Types
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get article Type By Id
+GET http://{{host}}/{{endpoint}}/getbyid?articleTypeId=10 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Create Article Type
+POST http://{{host}}/{{endpoint}}/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "title": "Khuyến mãi 03/01",
+      "field": "Giảm 1% khi đặt vé online cho từ 2 vé trở lên",
+      "highlight": 1
+}
+### Update Article Type
+PUT http://{{host}}/{{endpoint}}/update HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "articleTypeId": 10,
+      "title": "Politics",
+      "field": "Political Analysis",
+      "highlight": 0
+}
+
+### Delete article Types
+DELETE http://{{host}}/{{endpoint}}/delete?articleTypeId=11 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Deleted All
+GET http://{{host}}/{{endpoint}}/getalldeleted HTTP/1.1
+Content-Type: {{contentType}}

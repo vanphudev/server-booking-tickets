@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="vi">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Server API Futa Bus Lines - 2024 Đồ Án Chuyên Ngành - Trường Đại học Công Thương TP.HCM - Hệ thống đặt vé trực tuyến cho nhà xe Phương Trang" />
+      <meta name="keywords" content="đặt vé, xe phương trang, hệ thống đặt vé, đặt vé trực tuyến, huit, futa, bus, 2024, sinh viên, đồ án chuyên ngành, đại học công thương tp.hcm, huit, khoa công nghệ thông tin, đại học công thương tp.hcm, huit" />
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="Nguyễn Văn Phú, Phạm Thị Thanh Thúy, Phạm Thị Thanh Thủy" />
+      <meta name="copyright" content="Server API Futa Bus Lines - 2024 Đồ Án Chuyên Ngành - Trường Đại học Công Thương TP.HCM - Khoa Công nghệ thông tin - Đại học Công Thương TP.HCM - HUIT" />
+      <meta name="generator" content="Visual Studio Code" />
+      <meta name="rating" content="General" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="distribution" content="Global" />
+      <meta name="language" content="vi" />
+      <meta name="audience" content="all" />
+      <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dkhkjaual/image/upload/v1733254548/android-icon-144x144_ob9ww9.png" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+      <meta property="og:title" content="Server API Futa Bus Lines - 2024 Đồ Án Chuyên Ngành - Trường Đại học Công Thương TP.HCM - Hệ Thống Đặt Vé Xe Phương Trang" />
+      <meta property="og:description" content="Server API Futa Bus Lines - 2024 Đồ Án Chuyên Ngành - Trường Đại học Công Thương TP.HCM - Hệ thống đặt vé trực tuyến cho nhà xe Phương Trang" />
+      <meta property="og:image" content="https://res.cloudinary.com/dkhkjaual/image/upload/v1733207478/base64-16220114129062106454021_euk5ao.png" />
+      <meta property="og:url" content="https://server-futa.vanphudev.id.vn" />
+      <meta property="og:type" content="website" />
+      <title>Server API Futa Bus Lines - Hệ Thống Đặt Vé Xe Phương Trang</title>
+            <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+         }
+
+         body {
+            background: #f5f6fa;
+            color: #2d3436;
+            line-height: 1.6;
+            padding-top: 140px;
+         }
+
+         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+         }
+
+         header {
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0984e3, #00b894);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            position: fixed;
+            top: 0;
+            z-index: 999009;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%);
+         }
+
+         header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+         }
+
+         .team-info {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+         }
+
+         .team-info h3 {
+            color: #0984e3;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+         }
+
+         .team-info h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #0984e3, #00b894);
+         }
+
+         .instructor-info {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+         }
+
+         .team-members {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+         }
+
+         .team-members li {
+            padding: 15px 20px;
+            border: none;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+         }
+
+         .team-members li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+         }
+
+         .member-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0984e3, #00b894);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+         }
+
+         .project-description {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+         }
+
+         .project-description h2 {
+            color: #0984e3;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 10px;
+         }
+
+         .project-description p {
+            margin-bottom: 15px;
+            text-align: justify;
+         }
+
+         .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+         }
+
+         .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+         }
+
+         .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+         }
+
+         .feature-header {
+            background: linear-gradient(135deg, #0984e3, #00b894);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         }
+
+         .feature-header h4 {
+            color: white;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+         }
+
+         .feature-header i {
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.9;
+         }
+
+         .feature-content {
+            padding: 20px;
+         }
+
+         .feature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+         }
+
+         .feature-content li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            color: #2d3436;
+         }
+
+         .feature-content li:last-child {
+            border-bottom: none;
+         }
+
+         .feature-content li::before {
+            content: "→";
+            color: #0984e3;
+            margin-right: 12px;
+            font-weight: bold;
+         }
+
+         footer {
+            margin: 0 auto;
+            max-width: 1200px;
+            text-align: center;
+            padding: 5px;
+            background: #2d3436;
+            color: white;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+         }
+
+         @media (max-width: 768px) {
+            .container {
+               padding: 10px;
+            }
+
+            header h1 {
+               font-size: 1.8rem;
+            }
+
+            .features-grid {
+               grid-template-columns: 1fr;
+               gap: 20px;
+            }
+         }
+
+         .tech-stack {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+         }
+
+         .tech-stack h2 {
+            color: #0984e3;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 10px;
+         }
+
+         .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 20px;
+         }
+
+         .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+         }
+
+         .tech-item:hover {
+            transform: translateY(-5px);
+         }
+
+         .tech-item i {
+            font-size: 40px;
+            color: #0984e3;
+            margin-bottom: 8px;
+         }
+
+         @media (max-width: 768px) {
+            .tech-icons {
+               gap: 20px;
+            }
+
+            .tech-item i {
+               font-size: 30px;
+            }
+         }
+
+         .api-documentation {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+         }
+
+         .api-documentation h2 {
+            color: #0984e3;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 10px;
+         }
+
+         .endpoint-group {
+            margin-bottom: 30px;
+         }
+
+         .endpoint-group h3 {
+            margin-bottom: 20px;
+            color: #2d3436;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+         }
+
+         .endpoint-group h3 code {
+            margin-left: auto;
+            font-size: 0.9em;
+         }
+
+         .endpoint-item {
+            display: flex;
+            flex-direction: row;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+         }
+
+         .method {
+            padding: 10px 15px;
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+         }
+
+         .get { background: #00b894; border-radius: 8px 0 0 8px; }
+         .post { background: #0984e3; border-radius: 8px 0 0 8px; }
+         .put { background: #fdcb6e; border-radius: 8px 0 0 8px; }
+         .delete { background: #d63031; border-radius: 8px 0 0 8px; }
+
+         .endpoint-details {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+         }
+
+         .endpoint-details h4 {
+            margin: 0;
+            min-width: 200px;
+         }
+
+         .endpoint-details p {
+            margin: 0;
+            flex-grow: 1;
+         }
+
+         .view-details-btn {
+            background: #e17055;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+         }
+
+         .view-details-btn:hover {
+            background: var(--endpoint-color, #e17055);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+
+         .endpoint-group .endpoint-items {
+            display: grid;
+            grid-template-columns: 1fr;
+         }
+
+         .endpoint-item {
+            display: flex;
+            flex-direction: row;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+         }
+
+         .endpoint-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+         }
+
+         .endpoint-item:has(.get) { --endpoint-color: #00b894; }
+         .endpoint-item:has(.post) { --endpoint-color: #0984e3; }
+         .endpoint-item:has(.put) { --endpoint-color: #fdcb6e; }
+         .endpoint-item:has(.delete) { --endpoint-color: #d63031; }
+
+         .endpoint-url {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+         }
+         
+         code {
+            background: #f1f2f6;
+            color: #2d3436;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            border: 1px solid #dfe6e9;
+         }
+
+         .floating-team-info {
+            position: fixed;
+            left: 20px;
+            top: 140px;
+            width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            transform: none;
+         }
+
+         .gradient-border {
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 100%;
+         }
+
+         .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+            border-radius: 16px;
+            z-index: -1;
+            animation: animateGradient 3s linear infinite;
+         }
+
+         @keyframes animateGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+         }
+
+         .floating-team-info h4 {
+            color: #0984e3;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+         }
+
+         .floating-team-info ul {
+            list-style: none;
+            padding: 0;
+         }
+
+         .floating-team-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.2s ease;
+         }
+
+         .floating-team-info li:hover {
+            transform: translateX(5px);
+         }
+
+         .floating-team-info li:last-child {
+            border-bottom: none;
+         }
+
+         .floating-team-info i {
+            color: #0984e3;
+            font-size: 16px;
+         }
+
+         .floating-team-info span {
+            font-size: 14px;
+            color: #2d3436;
+         }
+
+         .floating-team-info.visible {
+            opacity: 1;
+            visibility: visible;
+         }
+
+         @media (max-width: 1400px) {
+            .floating-team-info {
+                display: none;
+            }
+         }
+
+         .project-quick-info {
+            position: fixed;
+            right: 20px;
+            top: 140px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            transform: none;
+         }
+
+         .project-quick-info.visible {
+            opacity: 1;
+            visibility: visible;
+         }
+
+         .project-quick-info h4 {
+            color: #0984e3;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 10px;
+         }
+
+         .project-quick-info .info-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+         }
+
+         .project-quick-info .info-item h5 {
+            color: #2d3436;
+            margin-bottom: 5px;
+            font-size: 16px;
+         }
+
+         .project-quick-info .info-item p {
+            color: #636e72;
+            font-size: 14px;
+            margin: 0;
+         }
+
+         @media (max-width: 1400px) {
+            .project-quick-info {
+                display: none;
+            }
+         }
+
+         .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 5px;
+            transition: color 0.3s ease;
+         }
+
+         .github-link:hover {
+            color: #0984e3;
+         }
+
+         .github-link i {
+            font-size: 1.1em;
+         }
+
+         .project-links {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+         }
+
+         .project-links h2 {
+            color: #0984e3;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+         }
+
+         .project-links h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #0984e3, #00b894);
+         }
+
+         .project-links ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+         }
+
+         .project-links li {
+            transition: all 0.3s ease;
+         }
+
+         .project-links a {
+            display: block;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #2d3436;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+         }
+
+         .project-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0984e3, #00b894);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+         }
+
+         .project-links a:hover {
+            transform: translateY(-5px);
+            border-color: #0984e3;
+            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.2);
+         }
+
+         .project-links a:hover::before {
+            opacity: 0.1;
+         }
+
+         .project-links a::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+         }
+
+         .project-links a:hover::after {
+            opacity: 1;
+            right: 15px;
+         }
+
+         /* Icon cho từng loại sản phẩm */
+         .project-links li a::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+            font-size: 1.2em;
+            vertical-align: middle;
+         }
+
+         .project-links li:nth-child(1) a {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-left: 4px solid #00b894;
+         }
+
+         .project-links li:nth-child(1) a:hover {
+            border-color: #00b894;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.2);
+         }
+
+         .project-links li:nth-child(2) a {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-left: 4px solid #0984e3;
+         }
+
+         .project-links li:nth-child(2) a:hover {
+            border-color: #0984e3;
+            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.2);
+         }
+
+         .project-links li:nth-child(3) a {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-left: 4px solid #e17055;
+         }
+
+         .project-links li:nth-child(3) a:hover {
+            border-color: #e17055;
+            box-shadow: 0 5px 15px rgba(225, 112, 85, 0.2);
+         }
+
+         /* Sửa lại gradient khi hover */
+         .project-links a::before {
+            background: none;  /* Xóa gradient mặc định */
+         }
+
+         .project-links li:nth-child(1) a::before {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+         }
+
+         .project-links li:nth-child(2) a::before {
+            background: linear-gradient(45deg, #0984e3, #74b9ff);
+         }
+
+         .project-links li:nth-child(3) a::before {
+            background: linear-gradient(45deg, #e17055, #fab1a0);
+         }
+
+         /* Responsive */
+         @media (max-width: 768px) {
+            .project-links ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-links a {
+                padding: 15px;
+            }
+         }
+
+         .info-sections {
+           position: fixed;
+           left: 20px;
+           top: 70%;
+           transform: translateY(-50%);
+           width: 300px;
+           opacity: 0;
+           visibility: hidden;
+           transition: all 0.3s ease;
+           z-index: 999;
+         }
+
+         .info-sections.visible {
+           opacity: 1;
+           visibility: visible;
+         }
+
+         .info-section {
+           background: rgba(255, 255, 255, 0.95);
+           border-radius: 12px;
+           margin-bottom: 15px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           border: 1px solid rgba(0, 0, 0, 0.1);
+           backdrop-filter: blur(5px);
+         }
+
+         .info-section h5 {
+            text-align: center;
+            color: #0984e3;
+            font-size: 18px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+         }
+
+         .info-section ul {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+         }
+
+         .info-section ul li {
+           display: flex;
+           align-items: center;
+           margin-bottom: 8px;
+           font-size: 14px;
+           color: #34495e;
+         }
+
+         .info-section ul li i {
+           width: 20px;
+           margin-right: 10px;
+           color: #3498db;
+         }
+
+         .info-section ul li span {
+           flex: 1;
+         }
+
+         /* Animation khi hiện */
+         @keyframes slideIn {
+           from {
+             transform: translateX(-100%);
+             opacity: 0;
+           }
+           to {
+             transform: translateX(0);
+             opacity: 1;
+           }
+         }
+
+         .info-sections.visible .info-section {
+           animation: slideIn 0.5s ease forwards;
+         }
+
+         /* Thêm delay cho section thứ 2 */
+         .info-sections.visible .info-section:nth-child(2) {
+           animation-delay: 0.2s;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <h1>Hệ Thống Đặt Vé Trực Tuyến Phương Trang</h1>
+            <p>Đồ án chuyên ngành - Khoa Công nghệ thông tin - Trường Đại học Công Thương TP.HCM (HUIT) - Năm học 2024 - 2025</p>
+         </div>
+      </header>
+      <div class="container">
+         <div class="team-info">
+            <h3>Thông Tin Nhóm Phát Triển</h3>
+            <div class="instructor-info">
+               <p><strong>Giảng viên hướng dẫn:</strong></p>
+               <p>ThS. Nguyễn Hải Yến</p>
+            </div>
+            <ul class="team-members">
+               <li>
+                  <div class="member-avatar">NVP</div>
+                  <div>
+                     <strong>Nguyễn Văn Phú</strong><br />
+                     2001216041 - 12DHTH01<br/>
+                     <a href="https://github.com/vanphudev" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> vanphudev
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div class="member-avatar">TTT</div>
+                  <div>
+                     <strong>Phạm Thị Thanh Thúy</strong><br />
+                     2001216196 - 12DHTH04<br/>
+                     <a href="https://github.com/thuyptt610" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> thuyptt610
+                     </a>
+                  </div>
+               </li>
+               <li>
+                  <div class="member-avatar">TTT</div>
+                  <div>
+                     <strong>Phạm Thị Thanh Thủy</strong><br />
+                     2001216195 - 12DHTH02<br/>
+                     <a href="https://github.com/phamthanhthuy95" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> phamthanhthuy95
+                     </a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="project-links">
+            <h2>Các Sản Phẩm Của Nhóm</h2>
+            <ul>
+               <li>
+                  <a href="https://futa.vanphudev.id.vn/" target="_blank">
+                     <i class="fas fa-ticket-alt"></i>
+                     Website Đặt Vé Phương Trang
+                  </a>
+               </li>
+               <li>
+                  <a href="https://futa-admin.vanphudev.id.vn/" target="_blank">
+                     <i class="fas fa-user-shield"></i>
+                     Trang Quản Trị
+                  </a>
+               </li>
+               <li>
+                  <a href="https://server-futa.vanphudev.id.vn/" target="_blank">
+                     <i class="fas fa-server"></i>
+                     Server API
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div class="project-description">
+            <h2>Giới Thiệu Dự Án</h2>
+            <p>
+               Đề tài "Xây dựng hệ thống đặt vé trực tuyến cho nhà xe Phương Trang" là một giải pháp hiện đại nhằm số
+               hóa quy trình đặt vé vé quản lý vận tải hành khách.
+            </p>
+
+            <div class="features-grid">
+               <div class="feature-card">
+                  <div class="feature-header">
+                     <h4>Tính Năng Người Dùng</h4>
+                     <i class="fas fa-users"></i>
+                  </div>
+                  <div class="feature-content">
+                     <ul>
+                        <li>Đăng ký/đăng nhập qua Firebase</li>
+                        <li>Tìm kiếm và đặt vé trực tuyến</li>
+                        <li>Thanh toán đa phương thức</li>
+                        <li>Quản lý lịch sử đặt vé</li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="feature-card">
+                  <div class="feature-header">
+                     <h4>Tính Năng Quản Trị</h4>
+                     <i class="fas fa-cogs"></i>
+                  </div>
+                  <div class="feature-content">
+                     <ul>
+                        <li>Quản lý chuyến xe</li>
+                        <li>Thống kê doanh thu</li>
+                        <li>Quản lý người dùng</li>
+                        <li>Báo cáo chi tiết</li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="feature-card">
+                  <div class="feature-header">
+                     <h4>Công Nghệ Sử Dụng</h4>
+                     <i class="fas fa-code"></i>
+                  </div>
+                  <div class="feature-content">
+                     <ul>
+                        <li>ReactJS & Redux</li>
+                        <li>Node.js Backend</li>
+                        <li>Firebase Authentication</li>
+                        <li>Redis Cache</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="tech-stack">
+               <h2>Công Nghệ Áp Dụng</h2>
+               <div class="tech-icons">
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><circle cx="16" cy="15.974" r="2.5" fill="#00d8ff"/><path fill="#00d8ff" d="M16 21.706a28.4 28.4 0 0 1-8.88-1.2a11.3 11.3 0 0 1-3.657-1.958A3.54 3.54 0 0 1 2 15.974c0-1.653 1.816-3.273 4.858-4.333A28.8 28.8 0 0 1 16 10.293a28.7 28.7 0 0 1 9.022 1.324a11.4 11.4 0 0 1 3.538 1.866A3.4 3.4 0 0 1 30 15.974c0 1.718-2.03 3.459-5.3 4.541a28.8 28.8 0 0 1-8.7 1.191m0-10.217a28 28 0 0 0-8.749 1.282c-2.8.977-4.055 2.313-4.055 3.2c0 .928 1.349 2.387 4.311 3.4A27.2 27.2 0 0 0 16 20.51a27.6 27.6 0 0 0 8.325-1.13C27.4 18.361 28.8 16.9 28.8 15.974a2.33 2.33 0 0 0-1.01-1.573a10.2 10.2 0 0 0-3.161-1.654A27.5 27.5 0 0 0 16 11.489"/><path fill="#00d8ff" d="M10.32 28.443a2.64 2.64 0 0 1-1.336-.328c-1.432-.826-1.928-3.208-1.327-6.373a28.8 28.8 0 0 1 3.4-8.593a28.7 28.7 0 0 1 5.653-7.154a11.4 11.4 0 0 1 3.384-2.133a3.4 3.4 0 0 1 2.878 0c1.489.858 1.982 3.486 1.287 6.859a28.8 28.8 0 0 1-3.316 8.133a28.4 28.4 0 0 1-5.476 7.093a11.3 11.3 0 0 1-3.523 2.189a4.9 4.9 0 0 1-1.624.307m1.773-14.7a28 28 0 0 0-3.26 8.219c-.553 2.915-.022 4.668.75 5.114c.8.463 2.742.024 5.1-2.036a27.2 27.2 0 0 0 5.227-6.79a27.6 27.6 0 0 0 3.181-7.776c.654-3.175.089-5.119-.713-5.581a2.33 2.33 0 0 0-1.868.089A10.2 10.2 0 0 0 17.5 6.9a27.5 27.5 0 0 0-5.4 6.849Z"/><path fill="#00d8ff" d="M21.677 28.456c-1.355 0-3.076-.82-4.868-2.361a28.8 28.8 0 0 1-5.747-7.237a28.7 28.7 0 0 1-3.374-8.471a11.4 11.4 0 0 1-.158-4A3.4 3.4 0 0 1 8.964 3.9c1.487-.861 4.01.024 6.585 2.31a28.8 28.8 0 0 1 5.39 6.934a28.4 28.4 0 0 1 3.41 8.287a11.3 11.3 0 0 1 .137 4.146a3.54 3.54 0 0 1-1.494 2.555a2.6 2.6 0 0 1-1.315.324m-9.58-10.2a28 28 0 0 0 5.492 6.929c2.249 1.935 4.033 2.351 4.8 1.9c.8-.465 1.39-2.363.782-5.434A27.2 27.2 0 0 0 19.9 13.74a27.6 27.6 0 0 0-5.145-6.64c-2.424-2.152-4.39-2.633-5.191-2.169a2.33 2.33 0 0 0-.855 1.662a10.2 10.2 0 0 0 .153 3.565a27.5 27.5 0 0 0 3.236 8.1Z"/></svg>
+                     <span>ReactJS</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#81cd39" d="M119.878 31.116c4.919-2.815 11.325-2.828 16.239 0c24.722 13.97 49.452 27.917 74.17 41.895c4.65 2.619 7.759 7.793 7.712 13.15v84.045c.035 5.579-3.382 10.877-8.287 13.436c-24.641 13.893-49.27 27.802-73.907 41.695c-5.019 2.87-11.554 2.649-16.418-.457c-7.387-4.282-14.787-8.544-22.175-12.822c-1.51-.9-3.212-1.616-4.278-3.08c.943-1.27 2.628-1.428 3.997-1.983c3.083-.981 5.916-2.555 8.748-4.082c.717-.49 1.591-.302 2.278.136c6.317 3.622 12.579 7.35 18.917 10.937c1.352.781 2.721-.256 3.877-.9c24.18-13.667 48.39-27.281 72.567-40.952c.896-.431 1.391-1.382 1.318-2.363c.017-27.725.004-55.454.009-83.18c.102-1.112-.542-2.136-1.549-2.592c-24.555-13.829-49.099-27.678-73.65-41.51a2.56 2.56 0 0 0-2.892-.005c-24.552 13.837-49.09 27.7-73.642 41.527c-1.003.457-1.676 1.464-1.557 2.58c.005 27.726 0 55.455 0 83.184a2.35 2.35 0 0 0 1.336 2.334c6.551 3.715 13.111 7.404 19.667 11.107c3.694 1.987 8.228 3.169 12.298 1.646c3.59-1.288 6.107-4.953 6.039-8.765c.034-27.563-.017-55.13.025-82.69c-.09-1.223 1.071-2.234 2.261-2.118c3.148-.022 6.3-.043 9.448.008c1.314-.03 2.218 1.288 2.056 2.52c-.013 27.738.034 55.476-.021 83.213c.008 7.393-3.029 15.437-9.867 19.054c-8.423 4.363-18.835 3.438-27.157-.746c-7.204-3.596-14.08-7.84-21.156-11.692c-4.918-2.545-8.318-7.864-8.283-13.439V86.161c-.052-5.468 3.182-10.736 7.975-13.317c24.637-13.903 49.27-27.818 73.902-41.728"/><path fill="#81cd39" d="M141.372 89.335c10.745-.692 22.248-.41 31.917 4.884c7.487 4.056 11.637 12.57 11.769 20.887c-.209 1.121-1.382 1.74-2.453 1.663c-3.117-.004-6.236.043-9.353-.021c-1.323.051-2.091-1.168-2.257-2.337c-.896-3.98-3.067-7.921-6.812-9.841c-5.75-2.878-12.416-2.733-18.687-2.673c-4.576.242-9.498.639-13.376 3.33c-2.977 2.039-3.881 6.155-2.819 9.47c1.002 2.38 3.749 3.148 5.997 3.856c12.95 3.387 26.672 3.049 39.373 7.506c5.26 1.817 10.404 5.35 12.204 10.856c2.355 7.38 1.323 16.2-3.928 22.124c-4.258 4.875-10.459 7.529-16.644 8.97c-8.228 1.835-16.767 1.882-25.123 1.067c-7.857-.896-16.034-2.96-22.099-8.313c-5.187-4.504-7.72-11.522-7.469-18.294c.06-1.144 1.199-1.942 2.295-1.848c3.139-.025 6.279-.034 9.418.005c1.254-.09 2.184.994 2.248 2.176c.579 3.791 2.004 7.771 5.31 10.018c6.381 4.117 14.388 3.835 21.694 3.95c6.052-.268 12.847-.349 17.787-4.35c2.606-2.282 3.378-6.1 2.674-9.384c-.763-2.773-3.664-4.065-6.155-4.91c-12.783-4.043-26.659-2.576-39.318-7.149c-5.14-1.816-10.11-5.25-12.084-10.53c-2.755-7.473-1.493-16.717 4.308-22.44c5.656-5.695 13.82-7.888 21.583-8.672"/></g></svg>
+                     <span>NodeJS</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><g clip-path="url(#skillIconsRedisLight0)"><path fill="#a41e11" d="M220.161 174.468c-10.673 5.567-65.957 28.297-77.727 34.431c-11.771 6.135-18.308 6.077-27.608 1.633c-9.3-4.443-68.131-28.206-78.736-33.275c-5.302-2.535-8.08-4.666-8.08-6.681V150.36s76.599-16.675 88.968-21.113s16.649-4.597 27.179-.742c10.53 3.854 73.449 15.206 83.846 19.018v19.936c0 1.999-2.396 4.241-7.831 7.02z"/><path fill="#d82c20" d="M220.162 154.246c-10.674 5.567-65.958 28.297-77.728 34.431c-11.771 6.135-18.308 6.076-27.608 1.633s-68.131-28.207-78.735-33.275c-10.605-5.069-10.817-8.552-.409-12.63l81.291-31.473c12.365-4.432 16.649-4.597 27.178-.742s65.481 25.726 75.873 29.596s10.8 6.946.127 12.513z"/><path fill="#a41e11" d="M220.161 141.5c-10.673 5.567-65.957 28.297-77.727 34.431c-11.771 6.135-18.308 6.076-27.608 1.633s-68.131-28.207-78.736-33.275c-5.302-2.535-8.08-4.666-8.08-6.681v-20.217s76.599-16.675 88.968-21.112c12.37-4.438 16.649-4.597 27.179-.743s73.449 15.207 83.846 19.019v19.936c0 1.998-2.396 4.241-7.831 7.019z"/><path fill="#d82c20" d="M220.162 121.283c-10.674 5.567-65.958 28.297-77.728 34.432c-11.771 6.134-18.308 6.076-27.608 1.633c-9.3-4.444-68.131-28.207-78.735-33.276c-10.605-5.069-10.817-8.552-.409-12.63l81.291-31.467c12.365-4.438 16.649-4.597 27.178-.742c10.53 3.854 65.481 25.73 75.883 29.532s10.801 6.946.128 12.513z"/><path fill="#a41e11" d="M220.161 107.312c-10.673 5.567-65.957 28.297-77.727 34.437s-18.308 6.076-27.608 1.633s-68.131-28.207-78.736-33.276c-5.302-2.534-8.08-4.665-8.08-6.68V83.198s76.599-16.674 88.968-21.112s16.649-4.597 27.179-.742c10.53 3.854 73.449 15.206 83.846 19.018v19.936c0 1.999-2.396 4.241-7.831 7.02z"/><path fill="#d82c20" d="M220.162 87.09c-10.674 5.567-65.958 28.297-77.728 34.432c-11.771 6.134-18.308 6.076-27.608 1.633S46.695 94.948 36.091 89.879c-10.605-5.069-10.817-8.552-.409-12.63l81.291-31.467c12.365-4.438 16.649-4.597 27.178-.742c10.53 3.854 65.481 25.73 75.883 29.532s10.801 6.946.128 12.513z"/><path fill="#fff" d="m132.996 78.755l-6.267-10.418l-20.01-1.803l14.931-5.387l-4.481-8.27l13.977 5.46l13.18-4.316l-3.563 8.547l13.436 5.037l-17.327 1.803zM99.614 99.497l46.34-7.115l-13.997 20.529zm-12.491-7.481c13.68 0 24.771-4.3 24.771-9.602s-11.091-9.602-24.771-9.602S62.35 77.11 62.35 82.414s11.09 9.602 24.772 9.602"/><path fill="#7a0c00" d="m202.113 81.014l-27.411 10.827l-.021-21.67z"/><path fill="#ad2115" d="m174.707 91.84l-2.969 1.167l-27.39-10.827l30.343-12.003z"/></g><defs><clipPath id="skillIconsRedisLight0"><path fill="#fff" d="M28 28h200v200H28z"/></clipPath></defs></g></svg>
+                     <span>Redis</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 128 128"><rect width="128" height="128" fill="none"/><path fill="#ffa000" d="M17.474 103.276L33.229 2.462a2.91 2.91 0 0 1 5.44-.924l16.294 30.39l6.494-12.366a2.91 2.91 0 0 1 5.15 0l43.97 83.714z"/><path fill="#f57c00" d="M71.903 64.005L54.955 31.913l-37.481 71.363Z"/><path fill="#ffca28" d="M110.577 103.276L98.51 28.604a2.91 2.91 0 0 0-1.984-2.286a2.91 2.91 0 0 0-2.94.714l-76.112 76.243l42.115 23.618a8.73 8.73 0 0 0 8.51 0l42.478-23.618Z"/><path fill="#fff" fill-opacity="0.2" d="M98.51 28.604a2.91 2.91 0 0 0-1.984-2.286a2.91 2.91 0 0 0-2.94.713L78.479 42.178L66.6 19.562a2.91 2.91 0 0 0-5.15 0l-6.494 12.365L38.662 1.538A2.91 2.91 0 0 0 35.605.044a2.91 2.91 0 0 0-2.384 2.425L17.474 103.276h-.051l.05.058l.415.204l75.676-75.764a2.91 2.91 0 0 1 4.932 1.571l11.965 74.003l.116-.073zm-80.898 74.534L33.228 3.182A2.91 2.91 0 0 1 35.613.756a2.91 2.91 0 0 1 3.057 1.495l16.292 30.39l6.495-12.366a2.91 2.91 0 0 1 5.15 0L78.245 42.41L17.61 103.138Z"/><path fill="#a52714" d="M68.099 126.18a8.73 8.73 0 0 1-8.51 0l-42.015-23.55l-.102.647l42.115 23.61a8.73 8.73 0 0 0 8.51 0l42.48-23.61l-.11-.67l-42.37 23.575z" opacity="0.2"/></svg>
+                     <span>Firebase</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#023430" rx="60"/><path fill="#10aa50" d="M171.173 107.591c-10.537-46.481-32.497-58.855-38.099-67.602A99 99 0 0 1 126.949 28c-.296 4.13-.84 6.73-4.35 9.862c-7.047 6.283-36.977 30.673-39.496 83.486c-2.347 49.242 36.2 79.605 41.292 82.744c3.916 1.927 8.685.041 11.012-1.728c18.581-12.752 43.969-46.75 35.786-94.773"/><path fill="#b8c4c2" d="M128.545 177.871c-.97 12.188-1.665 19.27-4.129 26.235c0 0 1.617 11.603 2.753 23.894h4.019a224 224 0 0 1 4.384-25.732c-5.203-2.56-6.827-13.702-7.027-24.397"/><path fill="#12924f" d="M135.565 202.275c-5.258-2.429-6.779-13.806-7.013-24.404a500 500 0 0 0 1.136-52.545c-.276-9.194.13-85.158-2.265-96.28a92 92 0 0 0 5.651 10.936c5.602 8.754 27.569 21.128 38.099 67.609c8.203 47.941-17.047 81.849-35.608 94.684"/></g></svg>
+                     <span>MongoDB</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><g clip-path="url(#skillIconsMysqlLight0)"><path fill="#00678c" fill-rule="evenodd" d="M203.801 178.21c-9.79-.272-17.385.731-23.75 3.409c-1.833.736-4.774.736-5.016 3.043c.98.968 1.098 2.552 1.957 3.894c1.467 2.435 4.041 5.715 6.365 7.417l7.834 5.598c4.774 2.917 10.16 4.622 14.811 7.542c2.694 1.704 5.386 3.894 8.08 5.721c1.372.973 2.203 2.558 3.918 3.163v-.368c-.856-1.091-1.103-2.672-1.956-3.894l-3.677-3.526c-3.547-4.744-7.957-8.884-12.731-12.287c-3.918-2.677-12.484-6.326-14.076-10.825l-.241-.273c2.689-.272 5.872-1.219 8.445-1.949c4.165-1.091 7.957-.851 12.238-1.945l5.88-1.704v-1.091c-2.204-2.189-3.795-5.11-6.119-7.176c-6.242-5.353-13.102-10.586-20.203-14.965c-3.794-2.432-8.692-4.017-12.731-6.081c-1.473-.731-3.918-1.096-4.774-2.312c-2.209-2.672-3.43-6.204-5.021-9.369l-10.037-21.168c-2.203-4.745-3.553-9.49-6.242-13.869c-12.611-20.683-26.324-33.212-47.38-45.502c-4.527-2.555-9.913-3.654-15.64-4.99l-9.18-.49c-1.962-.851-3.919-3.164-5.633-4.26c-6.978-4.38-24.974-13.868-30.12-1.363c-3.305 7.907 4.899 15.692 7.684 19.709c2.085 2.798 4.774 5.96 6.247 9.124c.823 2.067 1.098 4.259 1.957 6.449c1.956 5.352 3.794 11.316 6.365 16.306c1.372 2.555 2.813 5.235 4.527 7.545c.98 1.363 2.695 1.947 3.06 4.136c-1.715 2.435-1.833 6.081-2.813 9.127c-4.409 13.748-2.694 30.78 3.548 40.902c1.962 3.04 6.585 9.734 12.858 7.177c5.509-2.19 4.28-9.124 5.871-15.208c.37-1.458.124-2.432.856-3.408v.273l5.021 10.097c3.795 5.961 10.408 12.167 15.914 16.306c2.936 2.19 5.263 5.964 8.934 7.3v-.368h-.241c-.736-1.091-1.839-1.582-2.818-2.433c-2.203-2.189-4.651-4.867-6.366-7.299c-5.139-6.812-9.666-14.357-13.708-22.142c-1.961-3.771-3.676-7.908-5.262-11.679c-.741-1.461-.741-3.654-1.962-4.379c-1.839 2.672-4.527 4.99-5.88 8.273c-2.327 5.23-2.568 11.679-3.424 18.371c-.494.122-.275 0-.494.272c-3.913-.97-5.263-4.99-6.73-8.393c-3.672-8.638-4.287-22.507-1.104-32.484c.856-2.555 4.533-10.585 3.065-13.018c-.74-2.312-3.183-3.648-4.533-5.475c-1.591-2.312-3.3-5.23-4.403-7.785c-2.936-6.817-4.404-14.357-7.59-21.17c-1.473-3.164-4.041-6.45-6.124-9.367c-2.327-3.286-4.892-5.599-6.73-9.49c-.612-1.363-1.468-3.528-.489-4.99c.242-.973.735-1.363 1.71-1.581c1.59-1.364 6.124.365 7.715 1.09c4.527 1.827 8.322 3.529 12.117 6.081c1.715 1.216 3.553 3.529 5.756 4.14h2.574c3.918.85 8.322.272 11.99 1.363c6.49 2.072 12.364 5.11 17.632 8.398c16.035 10.098 29.26 24.454 38.193 41.611c1.468 2.798 2.08 5.353 3.43 8.273c2.574 5.964 5.757 12.045 8.322 17.888c2.574 5.718 5.021 11.562 8.693 16.306c1.838 2.555 9.18 3.891 12.484 5.23c2.45 1.091 6.242 2.073 8.451 3.409c4.159 2.555 8.322 5.475 12.237 8.273c1.956 1.456 8.081 4.499 8.445 6.926zM78.958 72.487a19.6 19.6 0 0 0-5.015.608v.273h.241c.98 1.947 2.695 3.286 3.918 4.99l2.818 5.84l.242-.272c1.714-1.216 2.573-3.163 2.573-6.08c-.735-.851-.856-1.705-1.468-2.556c-.735-1.216-2.326-1.827-3.309-2.797z" clip-rule="evenodd"/></g><defs><clipPath id="skillIconsMysqlLight0"><path fill="#fff" d="M38 38h180v180H38z"/></clipPath></defs></g></svg>
+                     <span>MySQL</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#0f0f0f" d="M228 182.937a12.73 12.73 0 0 1-15.791-6.005c-9.063-13.567-19.071-26.522-28.69-39.755l-4.171-5.56c-11.454 15.346-22.908 30.08-33.361 45.371a12.23 12.23 0 0 1-15.012 5.894l42.98-57.659l-39.978-52.1a13.29 13.29 0 0 1 15.847 5.56c9.285 13.568 19.572 26.523 29.802 40.257c10.287-13.623 20.462-26.634 29.97-40.09a11.95 11.95 0 0 1 14.901-5.56l-15.513 20.573c-6.95 9.174-13.789 18.404-21.017 27.356a5.56 5.56 0 0 0 0 8.285c13.289 17.626 26.466 35.307 40.033 53.433M28 124.5c1.168-5.56 1.89-11.621 3.503-17.292c9.619-34.195 48.818-48.43 75.785-27.245c15.791 12.4 19.739 29.97 18.961 49.764H37.286c-1.446 35.363 24.075 56.714 56.713 45.816a33.86 33.86 0 0 0 21.518-23.965c1.724-5.56 4.504-6.505 9.786-4.893a45.15 45.15 0 0 1-21.573 32.972a52.26 52.26 0 0 1-60.884-7.784a54.77 54.77 0 0 1-13.678-32.138c0-1.89-.723-3.781-1.112-5.56A861 861 0 0 1 28 124.5m9.397-2.391h80.456c-.501-25.632-16.681-43.814-38.254-43.98c-24.02-.334-41.201 17.458-42.258 43.869z"/></g></svg>
+                     <span>ExpressJS</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="url(#skillIconsViteLight0)" d="m227.088 57.602l-93.832 167.787c-1.938 3.465-6.915 3.485-8.881.038L28.682 57.617c-2.142-3.756 1.07-8.306 5.328-7.545l93.932 16.79a5.1 5.1 0 0 0 1.812-.004l91.968-16.763c4.243-.773 7.47 3.742 5.366 7.507"/><path fill="url(#skillIconsViteLight1)" d="m172.687 28.05l-69.438 13.605a2.55 2.55 0 0 0-2.055 2.352l-4.272 72.141a2.55 2.55 0 0 0 3.118 2.635l19.333-4.461c1.809-.417 3.443 1.176 3.072 2.995l-5.744 28.126c-.387 1.893 1.391 3.511 3.239 2.95l11.941-3.628c1.851-.562 3.63 1.061 3.238 2.956l-9.128 44.179c-.571 2.764 3.105 4.271 4.638 1.901l1.024-1.582l56.582-112.92c.948-1.89-.686-4.046-2.763-3.646l-19.899 3.841c-1.87.36-3.461-1.381-2.934-3.21l12.989-45.026c.528-1.832-1.069-3.575-2.941-3.209"/><defs><linearGradient id="skillIconsViteLight0" x1="26.346" x2="143.127" y1="44.075" y2="202.673" gradientUnits="userSpaceOnUse"><stop stop-color="#41d1ff"/><stop offset="1" stop-color="#bd34fe"/></linearGradient><linearGradient id="skillIconsViteLight1" x1="122.551" x2="143.676" y1="31.743" y2="176.66" gradientUnits="userSpaceOnUse"><stop stop-color="#ffea83"/><stop offset=".083" stop-color="#ffdd35"/><stop offset="1" stop-color="#ffa800"/></linearGradient></defs></g></svg>
+                     <span>Vite</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><g fill="none"><path fill="#367af2" d="M22 7.5v9.25a3.25 3.25 0 0 1-3.065 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V7.5l9.652 5.056a.75.75 0 0 0 .696 0z"/><path fill="url(#fluentColorMail240)" d="M22 7.5v9.25a3.25 3.25 0 0 1-3.065 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V7.5l9.652 5.056a.75.75 0 0 0 .696 0z"/><path fill="url(#fluentColorMail241)" d="M22 7.5v9.25a3.25 3.25 0 0 1-3.065 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V7.5l9.652 5.056a.75.75 0 0 0 .696 0z"/><path fill="url(#fluentColorMail242)" fill-opacity="0.75" d="M22 7.5v9.25a3.25 3.25 0 0 1-3.065 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V7.5l9.652 5.056a.75.75 0 0 0 .696 0z"/><path fill="url(#fluentColorMail243)" fill-opacity="0.7" d="M22 7.5v9.25a3.25 3.25 0 0 1-3.065 3.245L18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V7.5l9.652 5.056a.75.75 0 0 0 .696 0z"/><path fill="url(#fluentColorMail244)" d="m2 7.86l9.652 5.056a.75.75 0 0 0 .696 0L22 7.86v-.61A3.25 3.25 0 0 0 18.75 4H5.25A3.25 3.25 0 0 0 2 7.25z"/><defs><linearGradient id="fluentColorMail240" x1="14.539" x2="20.005" y1="9.95" y2="20.515" gradientUnits="userSpaceOnUse"><stop offset=".199" stop-color="#0094f0" stop-opacity="0"/><stop offset=".431" stop-color="#0094f0"/></linearGradient><linearGradient id="fluentColorMail241" x1="9.143" x2="3.828" y1="8.816" y2="20.865" gradientUnits="userSpaceOnUse"><stop offset=".191" stop-color="#0094f0" stop-opacity="0"/><stop offset=".431" stop-color="#0094f0"/></linearGradient><linearGradient id="fluentColorMail242" x1="17.273" x2="18.143" y1="14.957" y2="21.151" gradientUnits="userSpaceOnUse"><stop stop-color="#2764e7" stop-opacity="0"/><stop offset="1" stop-color="#2764e7"/></linearGradient><linearGradient id="fluentColorMail243" x1="15.095" x2="16.681" y1="9.035" y2="21.643" gradientUnits="userSpaceOnUse"><stop offset=".533" stop-color="#ff6ce8" stop-opacity="0"/><stop offset="1" stop-color="#ff6ce8"/></linearGradient><linearGradient id="fluentColorMail244" x1="7.942" x2="13.98" y1="1.151" y2="17.089" gradientUnits="userSpaceOnUse"><stop stop-color="#6ce0ff"/><stop offset=".462" stop-color="#29c3ff"/><stop offset="1" stop-color="#4894fe"/></linearGradient></defs></g></svg>
+                     <span>NodeMailer</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path fill="#c69" fill-rule="evenodd" d="M16 2A14 14 0 1 1 2 16A14 14 0 0 1 16 2"/><path fill="#fff" d="M24.782 7.992c-.634-2.486-4.757-3.3-8.659-1.918a19.6 19.6 0 0 0-6.644 3.811c-2.149 2.01-2.492 3.76-2.351 4.491c.5 2.58 4.033 4.266 5.486 5.517v.007c-.428.211-3.564 1.8-4.3 3.42c-.774 1.712.123 2.94.718 3.105A4.4 4.4 0 0 0 13.78 24.5a4.82 4.82 0 0 0 .472-4.288a5.6 5.6 0 0 1 2.143-.123c2.456.287 2.938 1.82 2.846 2.462a1.62 1.62 0 0 1-.779 1.1c-.172.107-.225.143-.21.223c.021.115.1.111.247.086a1.915 1.915 0 0 0 1.336-1.707c.059-1.5-1.382-3.186-3.934-3.143a6.7 6.7 0 0 0-2.189.3l-.108-.12c-1.578-1.683-4.494-2.874-4.371-5.137c.045-.823.331-2.989 5.6-5.617c4.32-2.153 7.778-1.56 8.376-.247c.854 1.876-1.848 5.361-6.334 5.864a3.37 3.37 0 0 1-2.833-.718c-.236-.26-.271-.271-.359-.223c-.143.079-.052.309 0 .445a2.66 2.66 0 0 0 1.621 1.274a8.6 8.6 0 0 0 5.258-.52c2.721-1.049 4.843-3.974 4.22-6.419M13.218 20.663a3.6 3.6 0 0 1-.029 2.092q-.035.106-.077.21t-.091.2a4 4 0 0 1-.647.943c-.813.887-1.95 1.223-2.437.94c-.526-.305-.263-1.556.68-2.553a9.5 9.5 0 0 1 2.474-1.762Z"/></svg>
+                     <span>SCSS</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#e14e1d" rx="60"/><path fill="#fff" d="m48 38l8.61 96.593h110.71l-3.715 41.43l-35.646 9.638l-35.579-9.624l-2.379-26.602H57.94l4.585 51.281l65.427 18.172l65.51-18.172l8.783-98.061H85.824l-2.923-32.71h122.238L208 38z"/><path fill="#ebebeb" d="M128 38H48l8.61 96.593H128v-31.938H85.824l-2.923-32.71H128zm0 147.647l-.041.014l-35.579-9.624l-2.379-26.602H57.94l4.585 51.281l65.427 18.172l.049-.014z"/></g></svg>
+                     <span>HTML</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f0db4f" rx="60"/><path fill="#323330" d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.889-3.092 12.889-15.12v-81.798h24.058v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.579c-17.357-7.388-28.871-16.668-28.871-36.258c0-18.044 13.748-31.792 35.229-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.731 12.029c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.139 14.778 14.608l6.014 2.577c20.449 8.765 31.963 17.699 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"/></g></svg>
+                     <span>JavaScript</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#0277bd" rx="60"/><path fill="#ebebeb" d="m53.753 102.651l2.862 31.942h71.481v-31.942zM128.095 38H48l2.904 31.942h77.191zm0 180.841v-33.233l-.14.037l-35.574-9.605l-2.274-25.476H58.042l4.475 50.154l65.431 18.164z"/><path fill="#fff" d="m167.318 134.593l-3.708 41.426l-35.625 9.616v33.231l65.483-18.148l.48-5.397l7.506-84.092l.779-8.578L208 38h-80.015v31.942h45.009l-2.906 32.709h-42.103v31.942z"/></g></svg>
+                     <span>CSS</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#2f406a" d="M191.959 91.979v72.006l-63.866 35.849l-.587.512v27.142l.587.512l89.92-49.727V78h-.858l-25.353 13.576v.561"/><path fill="#2379bd" d="m63.616 164.406l64.523 35.641V228L37 178V78h.917l25.434 14.103l.268.822v71.794"/><path fill="#03afef" d="M63.785 92.557L37 77.837L127.751 28l90.262 49.631l-26.09 13.954l-64.286-34.91l-63.96 35.78"/><path fill="#2f406a" d="m126.944 155.848l-.703-.658v-26.717l.703-.356v-.657l24.486-13.384h.76v27.579l-25.408 14.095"/><path fill="#2379bd" d="M101.139 143.086v-29.01h.707l25.027 13.759v28.646l-25.949-13.398"/><path fill="#03afef" d="m126.66 99.675l-25.103 14.557l25.53 14.401l25.103-14.346l-25.534-14.768"/><path fill="#2f406a" d="m95.897 174.203l-.67-.667v-27.142l.67-.36v-.667l23.292-13.569h.722v27.962l-24.168 14.289"/><path fill="#2379bd" d="M69.911 160.804v-29.006h.712l25.238 13.759v28.646l-25.946-13.399"/><path fill="#03afef" d="M95.068 117.292L69.91 131.798l25.532 14.557l25.101-14.347l-25.531-14.767"/><path fill="#2f406a" d="m159.855 174.836l-.703-.657v-26.737l.703-.354v-.658l24.487-13.367h.759v27.545l-25.408 14.076"/><path fill="#2379bd" d="M134.578 161.431v-29h.815l25.025 13.759v28.646l-25.95-13.405"/><path fill="#03afef" d="m159.889 117.874l-24.788 14.24l25.213 14.241l24.787-14.035z"/><path fill="#2f406a" d="m128.842 192.557l-.703-.667v-27.144l.703-.36v-.667l24.487-13.567h.76v27.957l-25.409 14.288"/><path fill="#2379bd" d="M102.823 179.108v-28.956h.712l25.237 13.759v28.646l-25.946-13.452"/><path fill="#03afef" d="m128.268 135.602l-25.445 14.338l25.877 14.136l25.389-14.136l-25.824-14.345"/><path fill="#2f406a" d="m126.944 117.874l-.703-.669V90.101l.703-.361v-.669L151.43 75.47h.76v28.03z"/><path fill="#2379bd" d="M101.139 104.546V75.469h.707l25.027 13.792v28.613l-25.949-13.432"/><path fill="#03afef" d="m126.658 61.544l-25.101 14.24l25.532 14.241l25.101-14.034z"/><path fill="#2f406a" d="m95.897 135.595l-.67-.674v-27.62l.67-.364v-.674l23.292-13.706h.722v28.244l-24.168 14.433"/><path fill="#2379bd" d="M69.911 122.199v-29.01h.712l25.238 13.76v28.646l-25.946-13.399"/><path fill="#03afef" d="M95.068 78.633L69.91 92.797l25.532 14.317l25.101-14.008l-25.531-14.42"/><path fill="#2f406a" d="m159.855 136.861l-.703-.678v-27.529l.703-.367v-.678l24.487-13.786h.759v28.411l-25.408 14.518"/><path fill="#2379bd" d="M135.101 123.402v-29.58h.783l23.901 13.931v29.108z"/><path fill="#03afef" d="m159.889 79.272l-24.788 14.235l25.213 14.24l24.787-14.034l-25.212-14.447"/><path fill="#2f406a" d="m128.842 153.946l-.703-.679V125.78l.703-.367v-.68l24.487-13.821h.76v28.482l-25.247 14.556"/><path fill="#2379bd" d="M102.823 140.451v-29.539h.712l25.237 14.014v29.024z"/><path fill="#03afef" d="m128.294 96.987l-25.471 14.215l25.85 14.266l25.416-14.059l-25.792-14.415"/></g></svg>
+                     <span>Sequelize</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#007acc" rx="60"/><path fill="#fff" d="m56.611 128.849l-.081 10.484h33.32v94.679h23.569v-94.679h33.32v-10.281c0-5.689-.121-10.443-.284-10.565c-.122-.162-20.399-.244-44.983-.203l-44.739.122zm149.956-10.741c6.501 1.626 11.459 4.511 16.01 9.224c2.357 2.52 5.851 7.112 6.136 8.209c.081.325-11.053 7.802-17.798 11.987c-.244.163-1.22-.894-2.317-2.519c-3.291-4.795-6.745-6.868-12.028-7.233c-7.761-.529-12.759 3.535-12.718 10.321c0 1.991.284 3.169 1.097 4.795c1.706 3.535 4.876 5.648 14.832 9.955c18.326 7.884 26.168 13.085 31.045 20.48c5.445 8.249 6.664 21.415 2.966 31.208c-4.063 10.646-14.141 17.879-28.323 20.277c-4.388.772-14.791.65-19.504-.203c-10.281-1.829-20.033-6.908-26.047-13.572c-2.357-2.601-6.949-9.387-6.664-9.875c.121-.162 1.178-.812 2.356-1.503c1.138-.65 5.446-3.129 9.509-5.486l7.355-4.267l1.544 2.276c2.154 3.291 6.867 7.802 9.712 9.305c8.167 4.308 19.383 3.698 24.909-1.259c2.357-2.154 3.332-4.389 3.332-7.68c0-2.967-.366-4.267-1.91-6.502c-1.991-2.844-6.054-5.242-17.595-10.24c-13.206-5.689-18.895-9.224-24.096-14.832c-3.007-3.25-5.852-8.452-7.03-12.8c-.975-3.616-1.219-12.678-.447-16.335c2.722-12.759 12.353-21.658 26.25-24.3c4.511-.853 14.994-.528 19.424.569"/></g></svg>
+                     <span>TypeScript</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#2489ca" d="M33.716 100.208s-4.735-3.413.947-7.97l13.236-11.836s3.788-3.985 7.792-.513l122.149 92.479v44.346s-.059 6.964-8.996 6.194z"/><path fill="#1070b3" d="m65.2 128.792l-31.484 28.623s-3.236 2.407 0 6.708l14.617 13.295s3.472 3.729 8.601-.513l33.378-25.309z"/><path fill="#0877b9" d="m120.474 129.029l57.741-44.09l-.375-44.109s-2.466-9.627-10.692-4.616l-76.836 69.931z"/><path fill="#3c99d4" d="M168.844 222.968c3.354 3.432 7.418 2.308 7.418 2.308l44.997-22.173c5.76-3.926 4.951-8.798 4.951-8.798V61.898c0-5.82-5.958-7.831-5.958-7.831l-38.999-18.8c-8.522-5.267-14.105.947-14.105.947s7.18-5.168 10.692 4.616v175.075a8 8 0 0 1-.769 3.453c-1.026 2.071-3.255 4.004-8.601 3.195z"/></g></svg>
+                     <span>Vs Code</span>
+                  </div>
+                  <div class="tech-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f03c2e" rx="60"/><g clip-path="url(#skillIconsGit0)"><path fill="#fff" d="m224.225 119.094l-87.319-87.319a12.87 12.87 0 0 0-14.035-2.793a12.9 12.9 0 0 0-4.177 2.793L100.569 49.9l23 23c5.35-1.875 11.475-.594 15.737 3.669a15.31 15.31 0 0 1 3.631 15.831l22.169 22.169c5.363-1.85 11.55-.657 15.831 3.637a15.32 15.32 0 0 1 3.321 16.706a15.333 15.333 0 0 1-20.029 8.293c-1.86-.771-3.55-1.9-4.973-3.324c-4.5-4.5-5.612-11.125-3.337-16.669l-20.675-20.675v54.407a15.6 15.6 0 0 1 4.062 2.9a15.326 15.326 0 0 1-21.675 21.675a15.32 15.32 0 0 1-3.326-16.704a15.3 15.3 0 0 1 3.326-4.971c1.481-1.475 3.125-2.594 5.019-3.344v-54.913a15.2 15.2 0 0 1-5.019-3.343a15.315 15.315 0 0 1-3.3-16.757L91.644 58.814l-59.875 59.812a12.88 12.88 0 0 0-2.795 14.04a12.9 12.9 0 0 0 2.795 4.179l87.325 87.312a12.9 12.9 0 0 0 4.177 2.793a12.9 12.9 0 0 0 9.858 0a12.9 12.9 0 0 0 4.177-2.793l86.919-86.781a12.88 12.88 0 0 0 3.776-9.109a12.88 12.88 0 0 0-3.776-9.11"/></g><defs><clipPath id="skillIconsGit0"><path fill="#fff" d="M28 28h200v200H28z"/></clipPath></defs></g></svg>
+                     <span>Git</span>
+                  </div>
+                  <div class="tech-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#161614" d="M128.001 30C72.779 30 28 74.77 28 130.001c0 44.183 28.653 81.667 68.387 94.89c4.997.926 6.832-2.169 6.832-4.81c0-2.385-.093-10.262-.136-18.618c-27.82 6.049-33.69-11.799-33.69-11.799c-4.55-11.559-11.104-14.632-11.104-14.632c-9.073-6.207.684-6.079.684-6.079c10.042.705 15.33 10.305 15.33 10.305c8.919 15.288 23.394 10.868 29.1 8.313c.898-6.464 3.489-10.875 6.349-13.372c-22.211-2.529-45.56-11.104-45.56-49.421c0-10.918 3.906-19.839 10.303-26.842c-1.039-2.519-4.462-12.69.968-26.464c0 0 8.398-2.687 27.508 10.25c7.977-2.215 16.531-3.326 25.03-3.364c8.498.038 17.06 1.149 25.051 3.365c19.087-12.939 27.473-10.25 27.473-10.25c5.443 13.773 2.019 23.945.98 26.463c6.412 7.003 10.292 15.924 10.292 26.842c0 38.409-23.394 46.866-45.662 49.341c3.587 3.104 6.783 9.189 6.783 18.519c0 13.38-.116 24.149-.116 27.443c0 2.661 1.8 5.779 6.869 4.797C199.383 211.64 228 174.169 228 130.001C228 74.771 183.227 30 128.001 30M65.454 172.453c-.22.497-1.002.646-1.714.305c-.726-.326-1.133-1.004-.898-1.502c.215-.512.999-.654 1.722-.311c.727.326 1.141 1.01.89 1.508m4.919 4.389c-.477.443-1.41.237-2.042-.462c-.654-.697-.777-1.629-.293-2.078c.491-.442 1.396-.235 2.051.462c.654.706.782 1.631.284 2.078m3.374 5.616c-.613.426-1.615.027-2.234-.863c-.613-.889-.613-1.955.013-2.383c.621-.427 1.608-.043 2.236.84c.611.904.611 1.971-.015 2.406m5.707 6.504c-.548.604-1.715.442-2.57-.383c-.874-.806-1.118-1.95-.568-2.555c.555-.606 1.729-.435 2.59.383c.868.804 1.133 1.957.548 2.555m7.376 2.195c-.242.784-1.366 1.14-2.499.807c-1.13-.343-1.871-1.26-1.642-2.052c.235-.788 1.364-1.159 2.505-.803c1.13.341 1.871 1.252 1.636 2.048m8.394.932c.028.824-.932 1.508-2.121 1.523c-1.196.027-2.163-.641-2.176-1.452c0-.833.939-1.51 2.134-1.53c1.19-.023 2.163.639 2.163 1.459m8.246-.316c.143.804-.683 1.631-1.864 1.851c-1.161.212-2.236-.285-2.383-1.083c-.144-.825.697-1.651 1.856-1.865c1.183-.205 2.241.279 2.391 1.097"/></g></svg>
+                     <span>Github</span>
+                  </div>
+               </div>
+            </div>
+            <div class="api-documentation">
+               <h2>API Documentation</h2>
+               <p style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #0984e3;">
+                  <strong>API Base URL:</strong> 
+                  <code>https://server-futa.vanphudev.id.vn</code>
+               </p>
+               <div class="api-endpoints">
+                  <div class="endpoint-group">
+                     <h3>🗺️ Danh sách tỉnh thành</h3>
+                     <div class="endpoint-items">
+                        <div class="endpoint-item">
+                           <div class="method get">GET</div>
+                           <div class="endpoint-details">
+                              <h4>/api/v1/public/provinces/getall</h4>
+                              <p>Lấy danh sách tỉnh thành</p>
+                              <a href="/api/v1/public/provinces/getall" class="view-details-btn">Xem chi tiết</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="endpoint-group">
+                     <h3>🗺️ Danh sách quận huyện</h3>
+                     <div class="endpoint-items">
+                        <div class="endpoint-item">
+                           <div class="method get">GET</div>
+                           <div class="endpoint-details">
+                              <h4>/api/v1/public/districts/getall</h4>
+                              <p>Lấy danh sách quận huyện</p>
+                              <a href="/api/v1/public/districts/getall" class="view-details-btn">Xem chi tiết</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="endpoint-group">
+                     <h3>
+                        🗺️ Danh sách quận huyện theo id tỉnh thành
+                        <code>/api/v1/public/districts/getbyprovinceid/{id province}</code>
+                     </h3>
+                     <div class="endpoint-items">
+                        <div class="endpoint-item">
+                           <div class="method get">GET</div>
+                           <div class="endpoint-details">
+                              <h4>/api/v1/public/districts/getbyprovinceid/27</h4>
+                              <p>Lấy danh sách quận huyện theo id tỉnh</p>
+                              <a href="/api/v1/public/districts/getbyprovinceid/27" class="view-details-btn">Xem chi tiết</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="endpoint-group">
+                     <h3>🗺️ Danh sách xã phường</h3>
+                     <div class="endpoint-items">
+                        <div class="endpoint-item">
+                           <div class="method get">GET</div>
+                           <div class="endpoint-details">
+                              <h4>/api/v1/public/wards/getall</h4>
+                              <p>Lấy danh sách xã phường</p>
+                              <a href="/api/v1/public/wards/getall" class="view-details-btn">Xem chi tiết</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="endpoint-group">
+                     <h3>🗺️ Danh sách xã phường theo id quận huyện
+                        <code>/api/v1/public/wards/getbydistrictid/{id district}</code>
+                     </h3>
+                     <div class="endpoint-items">
+                        <div class="endpoint-item">
+                           <div class="method get">GET</div>
+                           <div class="endpoint-details">
+                              <h4>/api/v1/public/wards/getbydistrictid/27</h4>
+                              <p>Lấy danh sách xã phường theo id quận huyện</p>
+                              <a href="/api/v1/public/wards/getbydistrictid/27" class="view-details-btn">Xem chi tiết</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer>
+         <div class="container">
+            <p>
+               &copy; 2024 Đồ Án Chuyên Ngành - Trường Đại học Công Thương TP.HCM - Khoa Công nghệ thông tin - Đại học
+               Công Thương TP.HCM - HUIT
+            </p>
+         </div>
+      </footer>
+      <div class="floating-team-info">
+         <div class="gradient-border">
+            <h4>Thông Tin Nhóm</h4>
+            <ul>
+               <li>
+                  <i class="fas fa-user-graduate"></i>
+                  <span>Nguyễn Văn Phú - 2001216041</span>
+               </li>
+               <li>
+                  <i class="fas fa-user-graduate"></i>
+                  <span>Phạm Thị Thanh Thúy - 2001216196</span>
+               </li>
+               <li>
+                  <i class="fas fa-user-graduate"></i>
+                  <span>Phạm Thị Thanh Thủy - 2001216195</span>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="info-sections">
+         <div class="info-section device-info">
+            <div class="gradient-border">
+            <h5>Thông Tin Thiết Bị Của Bạn</h5>
+            <ul>
+               <li>
+                  <i class="fas fa-desktop"></i>
+                  <span><%- info?.device %></span>
+               </li>
+               <li>
+                  <i class="fas fa-globe"></i>
+                  <span><%- info?.browser %> <%- info?.version %></span>
+               </li>
+               <li>
+                  <i class="fas fa-laptop"></i>
+                  <span><%- info?.os %></span>
+               </li>
+               <li>
+                  <i class="fas fa-network-wired"></i>
+                  <span><%- info?.ip %></span>
+               </li>
+            </ul>
+            </div>
+         </div>
+         <div class="info-section location-info">
+            <div class="gradient-border">
+            <h5>Vị Trí Hiện Tại Của Bạn</h5> 
+            <ul>
+               <li>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span><%- info?.location?.city %></span>
+               </li>
+               <li>
+                  <i class="fas fa-flag"></i>
+                  <span><%- info?.location?.country %></span>
+               </li>
+               <li>
+                  <i class="fas fa-clock"></i>
+                  <span><%- info?.location?.timezone %></span>
+               </li>
+               <li>
+                  <i class="fas fa-map-pin"></i>
+                  <span><%- info?.location?.ll[0] %>, <%- info?.location?.ll[1] %></span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      <div class="project-quick-info">
+         <div class="gradient-border">
+            <h4>Thông Tin Dự Án</h4>
+            <div class="info-item">
+               <h5>Tên Dự Án</h5>
+               <p>Hệ Thống Đặt Vé Trực Tuyến Phương Trang</p>
+            </div>
+            <div class="info-item">
+               <h5>Công Nghệ Chính</h5>
+               <p>ReactJS, NodeJS, Redis, Firebase, MongoDB</p>
+            </div>
+            <div class="info-item">
+               <h5>Tính Năng Nổi Bật</h5>
+               <p>- Đặt vé trực tuyến<br>
+                  - Thanh toán đa phương thức<br>
+                  - Quản lý chuyến xe<br>
+                  - Thống kê doanh thu</p>
+            </div>
+            <div class="info-item">
+               <h5>API Base URL</h5>
+               <p><code>server-futa.vanphudev.id.vn</code></p>
+            </div>
+         </div>
+      </div>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+             const floatingInfo = document.querySelector('.floating-team-info');
+             const projectInfo = document.querySelector('.project-quick-info');
+             const infoSections = document.querySelector('.info-sections');
+             
+             window.addEventListener('scroll', () => {
+                 if (window.scrollY > 200) {
+                     floatingInfo.classList.add('visible');
+                     projectInfo.classList.add('visible');
+                     infoSections.classList.add('visible');
+                 } else {
+                     floatingInfo.classList.remove('visible');
+                     projectInfo.classList.remove('visible');
+                     infoSections.classList.remove('visible');
+                 }
+             });
+         });
+     </script>
+   </body>
+</html>

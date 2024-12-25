@@ -1,0 +1,53 @@
+   @hostname = localhost
+@port = 8800
+@object = vehicleimage
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@contentType = application/json
+
+### Get All Vehicle Images
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Vehicle Image By ID
+GET http://{{host}}/{{endpoint}}/getbyid?vehicleImageId=4
+Content-Type: {{contentType}}
+### Create Vehicle Image
+POST http://{{host}}/{{endpoint}}/create/5 HTTP/1.1
+Content-Type: multipart/form-data; boundary=MfnBoundry
+
+--MfnBoundry
+Content-Disposition: form-data; name="vehicleName"
+
+Văn phòng bến xe miền đông, Hà Nội
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="phuongtrang.jpg"
+Content-Type: image/jpg
+
+< C:\Users\ACER\Pictures\Camera Roll\phuongtrang.jpg
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="phuongtrang.jpg"
+Content-Type: image/jpg
+
+< C:\Users\ACER\Pictures\Camera Roll\phuongtrang.jpg
+
+--MfnBoundry--
+
+### Update Vehicle Image with New Vehicle
+PUT http://{{host}}/{{endpoint}}/update?vehicleImageId=17
+Content-Type: {{contentType}}
+
+{
+   "vehicle_image_description": "phuongtrang1.jpg",
+   "vehicle_id": 9
+}
+
+### Delete Vehicle Image
+DELETE http://{{host}}/{{endpoint}}/delete?vehicleImageId=18
+Content-Type: {{contentType}}
+
+### Get All Deleted Vehicle Images
+GET http://{{host}}/{{endpoint}}/getalldeleted
+Content-Type: {{contentType}}

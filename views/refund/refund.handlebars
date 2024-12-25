@@ -1,0 +1,59 @@
+<html lang="vi" translate="no">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>FUTA Bus Lines - Xác nhận hủy vé {{ticketCode}}</title>
+   </head>
+   <body style="background-color: #ff6600; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+      <div style="padding: 0px 25px; font-size: 14px; line-height: 24px;">
+         <div style="border-radius: 5px; background-color: #fff; max-width: 600px; margin: 0 auto;">
+            <div style="padding: 20px 10px; text-align: center;">
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733205068/Bus_Lines_817c989817_jtr9hg.png"
+                  alt="FUTA Bus Lines Logo"
+                  width="300px"
+               />
+            </div>
+            <div>
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733204232/Picture1_v1n3zy.png"
+                  alt="Divider"
+                  width="100%"
+                  style="max-height: 70px;"
+               />
+            </div>
+            <div style="padding: 5px 25px;">
+               <h2 style="text-align: center; color: #ff6600;">Đáng tiếc vì quý khách đã hủy vé!</h2>
+               <p>Xin chào Anh/Chị <b>{{customerName}}</b>,</p>
+               <p>Chúng tôi rất tiếc khi biết rằng quý khách đã quyết định hủy vé. Dưới đây là thông tin chi tiết về yêu
+                  cầu hoàn vé của quý khách:</p>
+               <ul>
+                  <li>Email: {{customerEmail}}</li>
+                  <li>Số điện thoại: {{customerPhone}}</li>
+                  <li>Mã vé: {{ticketCode}}</li>
+                  <li>Mã vé hoàn: {{refundCode}}</li>
+                  <li>Số tiền hoàn: {{refundAmount}}</li>
+                  <li>Tỷ lệ hoàn: {{refundPercentage}}%</li>
+                  <li>Trạng thái: Đang chờ duyệt</li>
+               </ul>
+               <p>Yêu cầu hoàn vé của quý khách sẽ được xử lý trong vòng 2 đến 5 ngày làm việc. Nhân viên của chúng tôi
+                  sẽ liên hệ lại với quý khách sau khi hoàn tất.</p>
+            </div>
+            <div>
+               <img
+                  src="https://res.cloudinary.com/dkhkjaual/image/upload/v1733204232/Picture1_v1n3zy.png"
+                  alt="Divider"
+                  width="100%"
+                  style="max-height: 70px;"
+               />
+            </div>
+            <div style="text-align: center; font-size: 12px; color: #000;">
+               <p>FUTA Bus Lines luôn sẵn sàng phục vụ quý khách.</p>
+               <p>Mọi thông tin cần hỗ trợ, vui lòng liên hệ:
+                  <a href="mailto:support@futabus.vn">support@futabus.vn</a></p>
+               <p>Hotline: <b>1900 969681</b></p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

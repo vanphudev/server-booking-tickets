@@ -1,0 +1,53 @@
+@hostname = localhost
+@port = 8800
+@object = vehicle
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@endpointPublic = api/v1/public/{{object}}
+@contentType = application/json
+
+### Get All Vehicle
+GET http://{{host}}/{{endpointPublic}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Vehicle By Id
+GET http://{{host}}/{{endpoint}}/getbyid?vehicleId=4 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Create Vehicle
+POST http://{{host}}/{{endpoint}}/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "code": "V0013",
+      "license_plate": "AB123CEE",
+      "model": "Model XX",
+      "brand": "Brand YY",
+      "capacity": 6,
+      "manufacture_year": 2020,
+      "color": "Red",
+      "description": "A comfortable family car"
+}
+### Update Vehicle
+PUT http://{{host}}/{{endpoint}}/update HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "vehicleId": 9,
+      "code": "V0013",
+      "license_plate": "AB123CEF",
+      "model": "Model Xy",
+      "brand": "Brand YY",
+      "capacity": 6,
+      "manufacture_year": 2020,
+      "color": "Red",
+      "description": "A comfortable family car"
+}
+### Delete Vehicle
+DELETE http://{{host}}/{{endpoint}}/delete?vehicleId=6 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Deleted All
+GET http://{{host}}/{{endpoint}}/getalldeleted HTTP/1.1
+Content-Type: {{contentType}}
+

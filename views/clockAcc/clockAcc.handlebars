@@ -1,0 +1,53 @@
+<html lang="vi" translate="no">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Thông Báo Khóa Tài Khoản</title>
+      <style>
+         body { margin: 0; padding: 0; background-color: #f4f4f4; font-family: 'Segoe UI', Tahoma, Geneva, Verdana,
+         sans-serif; } .email-container { max-width: 600px; margin: 20px auto; background: #fff; border: 1px solid #ccc;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; } .header { background:
+         linear-gradient(to right, #0056b3, #0096c7); color: white; padding: 20px; text-align: center; } .header h2 {
+         margin: 0; font-size: 24px; letter-spacing: 2px; } .content { padding: 20px; } .content p { margin: 15px 0;
+         line-height: 1.8; color: #333; font-size: 16px; } .alert-box { background: #fce4e4; padding: 15px; margin: 20px
+         0; border: 1px solid #d9534f; border-radius: 5px; text-align: center; font-size: 18px; font-weight: bold;
+         color: #d9534f; box-shadow: 0 4px 8px rgba(0,0,0,0.1); } .footer { text-align: center; padding: 20px;
+         font-size: 12px; background: #e0e0e0; color: #333; border-top: 1px solid #ccc; }
+      </style>
+   </head>
+   <body>
+      <div class="email-container">
+         <div class="header">
+            <h2> FUTA BUS LINE - Thông Báo Khóa Tài Khoản của bạn</h2>
+         </div>
+
+         <div class="content">
+            <p>Kính gửi <strong>{{name}}</strong>,</p>
+
+            <p>Chúng tôi xin thông báo rằng tài khoản của bạn đã bị khóa vì một số lý do liên quan đến bảo mật hoặc vi
+               phạm chính sách sử dụng dịch vụ.</p>
+
+            <div class="alert-box">
+               Tài khoản:
+               <strong>{{email}}</strong><br />
+               Trạng thái:
+               <strong>Đã bị khóa</strong>
+            </div>
+
+            <p>Nếu bạn tin rằng đây là sự nhầm lẫn hoặc cần hỗ trợ thêm, vui lòng liên hệ với bộ phận hỗ trợ khách hàng
+               qua email:
+               <strong>support@futa.com</strong>
+               hoặc số điện thoại:
+               <strong>0123-456-789</strong>.</p>
+            <p>Chúng tôi rất tiếc vì sự bất tiện này và mong sớm nhận được phản hồi từ bạn.</p>
+
+            <p>Trân trọng,<br />
+               <strong>Đội ngũ Hỗ trợ Khách hàng</strong></p>
+         </div>
+
+         <div class="footer">
+            <p>Email này được gửi tự động. Vui lòng không trả lời email này.</p>
+         </div>
+      </div>
+   </body>
+</html>

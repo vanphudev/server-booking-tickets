@@ -1,0 +1,16 @@
+@hostname = localhost
+@port = 8800
+@object = districts
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/public/{{object}}
+@contentType = application/json
+
+### Get All District
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get District By Id
+GET http://{{host}}/{{endpoint}}/getbyid/27 HTTP/1.1
+
+### Get District By Province Id
+GET http://{{host}}/{{endpoint}}/getbyprovinceid/12 HTTP/1.1

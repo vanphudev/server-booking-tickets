@@ -1,0 +1,54 @@
+   @hostname = localhost
+@port = 8800
+@object = articleimage
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@contentType = application/json
+
+### Get All Article Images
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get By ID
+GET http://{{host}}/{{endpoint}}/getbyid?articleImageId=30
+Content-Type: {{contentType}}
+
+### Update Article Image
+PUT http://{{host}}/{{endpoint}}/update?articleImageId=25
+Content-Type: {{contentType}}
+
+{
+    "image_article_name": "phuongtrang1.png",
+    "article_id": 3
+}
+
+### Create Office Image
+POST http://{{host}}/{{endpoint}}/create/3 HTTP/1.1
+Content-Type: multipart/form-data; boundary=MfnBoundry
+
+--MfnBoundry
+Content-Disposition: form-data; name="ArticleName"
+
+Văn phòng bến xe miền đông, Hà Nội
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="phuongtrang.jpg"
+Content-Type: image/jpg
+
+< C:\Users\ACER\Pictures\Camera Roll\phuongtrang.jpg
+
+--MfnBoundry
+Content-Disposition: form-data; name="images"; filename="phuongtrang.jpg"
+Content-Type: image/jpg
+
+< C:\Users\ACER\Pictures\Camera Roll\phuongtrang.jpg
+
+--MfnBoundry--
+
+### Delete article Types
+DELETE http://{{host}}/{{endpoint}}/delete?articleImageId=30 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get All Deleted Article Images
+GET http://{{host}}/{{endpoint}}/getalldeleted
+Content-Type: {{contentType}}

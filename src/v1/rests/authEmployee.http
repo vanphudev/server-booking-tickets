@@ -1,0 +1,98 @@
+@hostname = localhost
+@port = 8800
+@object = employee/auth
+@host = {{hostname}}:{{port}}
+@endpoint = api/v1/private/{{object}}
+@endpointPublic = api/v1/public/{{object}}
+@contentType = application/json
+
+
+### Get Employee By Id
+GET http://{{host}}/{{endpoint}}/get-employee-by-id/12 HTTP/1.1
+Content-Type: {{contentType}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJlbWFpbCI6Im5ndXllbnZhbmFAZXhhbXBsZS5jb20iLCJwaG9uZSI6IjAxMjM0NTY3ODkiLCJmdWxsTmFtZSI6Ik5ndXnhu4VuIFbEg24gQSIsImdlbmRlciI6MSwiYmlydGhkYXkiOiIxOTkwLTAxLTAxIiwidXNlcm5hbWUiOiJuZ3V5ZW52YW5hIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE3MzA5MDczOTAsImV4cCI6MTczMDkwNzk5MH0.DlQHp0xYda5ETxMWxytyHo8d8KzKaWxDOaZtrfCS0Dk
+Accept: application/json
+Client_ID: 12
+
+
+### Sign In
+POST http://{{host}}/{{endpointPublic}}/signin HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+   "username": "nguyenvana",
+   "password": "Password@123"
+}
+
+### Sign Out
+POST http://{{host}}/{{endpoint}}/signout HTTP/1.1
+Content-Type: {{contentType}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJlbWFpbCI6Im5ndXllbnZhbmFAZXhhbXBsZS5jb20iLCJwaG9uZSI6IjAxMjM0NTY3ODkiLCJmdWxsTmFtZSI6Ik5ndXnhu4VuIFbEg24gQSIsImdlbmRlciI6MSwiYmlydGhkYXkiOiIxOTkwLTAxLTAxIiwidXNlcm5hbWUiOiJuZ3V5ZW52YW5hIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE3MzA3NTAzNjksImV4cCI6MTczMDc1MDk2OX0.gTgQmjZbkh2HjrecHq7VGixvprtSRR7CDV5FUwtSxE8
+Accept: application/json
+Client_ID: 12
+
+### Refresh Token
+POST http://{{host}}/{{endpoint}}/refresh-token HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+   "employeeId": 12,
+   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJlbWFpbCI6Im5ndXllbnZhbmFAZXhhbXBsZS5jb20iLCJwaG9uZSI6IjAxMjM0NTY3ODkiLCJmdWxsTmFtZSI6Ik5ndXnhu4VuIFbEg24gQSIsImdlbmRlciI6MSwiYmlydGhkYXkiOiIxOTkwLTAxLTAxIiwidXNlcm5hbWUiOiJuZ3V5ZW52YW5hIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE3MzA3NTAzNDMsImV4cCI6MTczMTM1NTE0M30.HHNDFJICmEx91bFhnPYuv9P8uPJ4qR-I4ze_SfLFbxY"
+}
+
+### Get All Employees
+GET http://{{host}}/{{endpoint}}/getall HTTP/1.1
+Content-Type: {{contentType}}
+
+### Get Emplyee By Code
+GET http://{{host}}/{{endpointPublic}}/getbyid?employeeId=1 HTTP/1.1
+Content-Type: {{contentType}}
+
+### Create Employee
+POST http://{{host}}/{{endpointPublic}}/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "employee_full_name": "Nguyễn Văn D",
+    "employee_email": "nguyenvand@example.com",
+    "employee_phone": "0912345673",
+    "employee_username": "nguyenvand123",
+    "employee_birthday": "1995-05-15",
+    "employee_password": "Password@123",
+    "employee_gender": 1,
+    "office_id": 15,
+    "employee_type_id": 1,
+    "is_first_activation": 1,
+    "is_locked": 0,
+    "employee_profile_image": null,
+    "employee_profile_image_public_id": null,
+    "last_lock_at": null
+}
+### Update Employees
+PUT http://{{host}}/{{endpointPublic}}/update/29 HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+      "employee_full_name": "Nguyễn Văn D",
+      "employee_email": "nguyenvand@example.com",
+      "employee_phone": "0912345673",
+      "employee_username": "nguyenvand123",
+      "employee_birthday": "1995-05-15",
+      "employee_password": "Password@123",
+      "employee_gender": 1,
+      "office_id": 16,
+      "employee_type_id": 1,
+      "is_first_activation": 1,
+      "is_locked": 0,
+      "employee_profile_image": null,
+      "employee_profile_image_public_id": null,
+      "last_lock_at": null
+}
+
+### Delete Employee
+DELETE http://{{host}}/{{endpointPublic}}/delete HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "employeeId": 29
+}
